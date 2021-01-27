@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,16 @@
 		401F869F25BD96EF00B69957 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F869E25BD96EF00B69957 /* ContentView.swift */; };
 		401F86A125BD96F100B69957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401F86A025BD96F100B69957 /* Assets.xcassets */; };
 		401F86A425BD96F100B69957 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 401F86A325BD96F100B69957 /* Preview Assets.xcassets */; };
+		401F86AE25BD977500B69957 /* DPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86AD25BD977500B69957 /* DPad.swift */; };
+		401F86B125BD97A100B69957 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86B025BD97A100B69957 /* CircleButton.swift */; };
+		401F86B825BD98C700B69957 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 401F86B725BD98C700B69957 /* ComposableArchitecture */; };
+		401F86BD25BD98EB00B69957 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86BC25BD98EB00B69957 /* AppState.swift */; };
+		401F86C025BD99D900B69957 /* AppAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86BF25BD99D900B69957 /* AppAction.swift */; };
+		401F86C325BD9B4500B69957 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86C225BD9B4500B69957 /* AppReducer.swift */; };
+		401F86C625BD9B6F00B69957 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86C525BD9B6F00B69957 /* AppEnvironment.swift */; };
+		401F86C925BD9B9F00B69957 /* ADB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86C825BD9B9F00B69957 /* ADB.swift */; };
+		401F86CD25BD9DA200B69957 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86CC25BD9DA200B69957 /* Remote.swift */; };
+		404247D125C07A03006D7E39 /* Parsing in Frameworks */ = {isa = PBXBuildFile; productRef = 404247D025C07A03006D7E39 /* Parsing */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +31,14 @@
 		401F86A325BD96F100B69957 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		401F86A525BD96F100B69957 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401F86A625BD96F100B69957 /* ADBRemote.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADBRemote.entitlements; sourceTree = "<group>"; };
+		401F86AD25BD977500B69957 /* DPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPad.swift; sourceTree = "<group>"; };
+		401F86B025BD97A100B69957 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		401F86BC25BD98EB00B69957 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		401F86BF25BD99D900B69957 /* AppAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAction.swift; sourceTree = "<group>"; };
+		401F86C225BD9B4500B69957 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
+		401F86C525BD9B6F00B69957 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		401F86C825BD9B9F00B69957 /* ADB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADB.swift; sourceTree = "<group>"; };
+		401F86CC25BD9DA200B69957 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				401F86B825BD98C700B69957 /* ComposableArchitecture in Frameworks */,
+				404247D125C07A03006D7E39 /* Parsing in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,6 +73,9 @@
 		401F869B25BD96EF00B69957 /* ADBRemote */ = {
 			isa = PBXGroup;
 			children = (
+				401F86BA25BD98CD00B69957 /* core */,
+				401F86B425BD97B500B69957 /* adb */,
+				401F86B325BD97AC00B69957 /* views */,
 				401F869C25BD96EF00B69957 /* ADBRemoteApp.swift */,
 				401F869E25BD96EF00B69957 /* ContentView.swift */,
 				401F86A025BD96F100B69957 /* Assets.xcassets */,
@@ -71,6 +94,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		401F86B325BD97AC00B69957 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				401F86AD25BD977500B69957 /* DPad.swift */,
+				401F86B025BD97A100B69957 /* CircleButton.swift */,
+				401F86CC25BD9DA200B69957 /* Remote.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		401F86B425BD97B500B69957 /* adb */ = {
+			isa = PBXGroup;
+			children = (
+				401F86C825BD9B9F00B69957 /* ADB.swift */,
+			);
+			path = adb;
+			sourceTree = "<group>";
+		};
+		401F86BA25BD98CD00B69957 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				401F86BC25BD98EB00B69957 /* AppState.swift */,
+				401F86BF25BD99D900B69957 /* AppAction.swift */,
+				401F86C225BD9B4500B69957 /* AppReducer.swift */,
+				401F86C525BD9B6F00B69957 /* AppEnvironment.swift */,
+			);
+			path = core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -87,6 +139,10 @@
 			dependencies = (
 			);
 			name = ADBRemote;
+			packageProductDependencies = (
+				401F86B725BD98C700B69957 /* ComposableArchitecture */,
+				404247D025C07A03006D7E39 /* Parsing */,
+			);
 			productName = ADBRemote;
 			productReference = 401F869925BD96EF00B69957 /* ADBRemote.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +170,10 @@
 				Base,
 			);
 			mainGroup = 401F869025BD96EF00B69957;
+			packageReferences = (
+				401F86B625BD98C700B69957 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				404247CF25C07A03006D7E39 /* XCRemoteSwiftPackageReference "swift-parsing" */,
+			);
 			productRefGroup = 401F869A25BD96EF00B69957 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,7 +201,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				401F869F25BD96EF00B69957 /* ContentView.swift in Sources */,
+				401F86CD25BD9DA200B69957 /* Remote.swift in Sources */,
+				401F86BD25BD98EB00B69957 /* AppState.swift in Sources */,
+				401F86C325BD9B4500B69957 /* AppReducer.swift in Sources */,
 				401F869D25BD96EF00B69957 /* ADBRemoteApp.swift in Sources */,
+				401F86AE25BD977500B69957 /* DPad.swift in Sources */,
+				401F86C625BD9B6F00B69957 /* AppEnvironment.swift in Sources */,
+				401F86B125BD97A100B69957 /* CircleButton.swift in Sources */,
+				401F86C925BD9B9F00B69957 /* ADB.swift in Sources */,
+				401F86C025BD99D900B69957 /* AppAction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +401,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		401F86B625BD98C700B69957 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.11.0;
+			};
+		};
+		404247CF25C07A03006D7E39 /* XCRemoteSwiftPackageReference "swift-parsing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-parsing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		401F86B725BD98C700B69957 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 401F86B625BD98C700B69957 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		404247D025C07A03006D7E39 /* Parsing */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 404247CF25C07A03006D7E39 /* XCRemoteSwiftPackageReference "swift-parsing" */;
+			productName = Parsing;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 401F869125BD96EF00B69957 /* Project object */;
 }

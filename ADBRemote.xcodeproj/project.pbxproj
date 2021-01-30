@@ -21,6 +21,7 @@
 		401F86C925BD9B9F00B69957 /* ADB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86C825BD9B9F00B69957 /* ADB.swift */; };
 		401F86CD25BD9DA200B69957 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86CC25BD9DA200B69957 /* Remote.swift */; };
 		404247D125C07A03006D7E39 /* Parsing in Frameworks */ = {isa = PBXBuildFile; productRef = 404247D025C07A03006D7E39 /* Parsing */; };
+		40A0BCC925C58B15005BE678 /* KeyEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0BCC825C58B15005BE678 /* KeyEventList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		401F86C525BD9B6F00B69957 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		401F86C825BD9B9F00B69957 /* ADB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADB.swift; sourceTree = "<group>"; };
 		401F86CC25BD9DA200B69957 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
+		40A0BCC825C58B15005BE678 /* KeyEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				401F86AD25BD977500B69957 /* DPad.swift */,
 				401F86B025BD97A100B69957 /* CircleButton.swift */,
 				401F86CC25BD9DA200B69957 /* Remote.swift */,
+				40A0BCC825C58B15005BE678 /* KeyEventList.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				401F86AE25BD977500B69957 /* DPad.swift in Sources */,
 				401F86C625BD9B6F00B69957 /* AppEnvironment.swift in Sources */,
 				401F86B125BD97A100B69957 /* CircleButton.swift in Sources */,
+				40A0BCC925C58B15005BE678 /* KeyEventList.swift in Sources */,
 				401F86C925BD9B9F00B69957 /* ADB.swift in Sources */,
 				401F86C025BD99D900B69957 /* AppAction.swift in Sources */,
 			);

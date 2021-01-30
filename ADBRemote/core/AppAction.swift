@@ -13,6 +13,14 @@ enum AppAction {
   case loadedDevices([Device])
   case selectDevice(Device.ID?)
   case sendKeyEvent(AndroidKeyEvent)
+  case sendText(String)
+  case keyEventList(KeyEventListAction)
+}
+
+enum KeyEventListAction {
+  case filterTextChanged(String)
+  case applyFilter
+  case sendKeyEvent(AndroidKeyEvent)
 }
 
 let androidKeyEvents: [AndroidKeyEvent: Int] = [
@@ -343,7 +351,7 @@ let androidKeyEvents: [AndroidKeyEvent: Int] = [
   .META_SYM_ON: 4
 ]
 
-enum AndroidKeyEvent: String {
+enum AndroidKeyEvent: String, CaseIterable {
   case ACTION_DOWN
   case ACTION_MULTIPLE
   case ACTION_UP

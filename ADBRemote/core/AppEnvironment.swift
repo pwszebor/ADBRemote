@@ -12,3 +12,13 @@ struct AppEnvironment {
   let adb: ADB
   let mainQueue: AnySchedulerOf<DispatchQueue>
 }
+
+struct KeyEventListEnvironment {
+  let mainQueue: AnySchedulerOf<DispatchQueue>
+}
+
+extension AppEnvironment {
+  var keyEventList: KeyEventListEnvironment {
+    .init(mainQueue: mainQueue)
+  }
+}

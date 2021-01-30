@@ -17,4 +17,10 @@ struct AppState: Equatable {
   var refreshing = false
   var devices = IdentifiedArrayOf<Device>()
   var currentDevice: Device?
+
+  struct KeyEventListState: Equatable {
+    var events = Array(AndroidKeyEvent.allCases)
+    var filterText = ""
+  }
+  var keyEventList = KeyEventListState()
 }

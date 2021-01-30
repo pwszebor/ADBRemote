@@ -20,6 +20,8 @@ struct WhiteCircularButton: ButtonStyle {
 struct Remote: View {
   let store: Store<AppState, AppAction>
 
+  @State var inputText = ""
+
   var body: some View {
     WithViewStore(store) { viewStore in
       HStack {
@@ -43,9 +45,28 @@ struct Remote: View {
             }
             .buttonStyle(WhiteCircularButton())
           }
+
+          HStack {
+            TextField(
+              "Send text",
+              text: $inputText
+            )
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            Button("Send") {
+              viewStore.send(.sendText(inputText))
+            }
+          }
+          .padding(.vertical)
         }
         .frame(width: 300)
         .padding(.horizontal)
+
+        KeyEventList(
+          store: store.scope(
+            state: { $0.keyEventList },
+            action: { AppAction.keyEventList($0) }
+          )
+        )
 
         List(selection: viewStore.binding(
           get: { $0.currentDevice?.id },
@@ -66,12 +87,19 @@ struct Remote: View {
             }
           ) {
             ForEach(viewStore.devices) { device in
-              VStack(alignment: .leading) {
-                Text(device.name)
-                  .lineLimit(1)
-                Text(device.id)
-                  .font(.caption)
-                  .lineLimit(1)
+              HStack {
+                Image(systemName: "checkmark")
+                  .opacity(viewStore.currentDevice?.id == device.id
+                    ? 1
+                    : 0
+                  )
+                VStack(alignment: .leading) {
+                  Text(device.name)
+                    .lineLimit(1)
+                  Text(device.id)
+                    .font(.caption)
+                    .lineLimit(1)
+                }
               }
             }
           }

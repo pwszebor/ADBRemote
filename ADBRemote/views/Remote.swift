@@ -8,15 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct WhiteCircularButton: ButtonStyle {
-  func makeBody(configuration: Configuration) -> some View {
-    configuration.label
-      .frame(width: 50, height: 50)
-      .background(Color.white.opacity(configuration.isPressed ? 0.7 : 1))
-      .cornerRadius(25)
-  }
-}
-
 struct Remote: View {
   let store: Store<AppState, AppAction>
 
@@ -45,6 +36,11 @@ struct Remote: View {
             }
             .buttonStyle(WhiteCircularButton())
           }
+
+          MediaButtons {
+            viewStore.send(.sendKeyEvent($0))
+          }
+          .padding(.vertical)
 
           HStack {
             TextField(

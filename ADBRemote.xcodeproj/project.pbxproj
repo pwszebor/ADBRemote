@@ -22,6 +22,8 @@
 		401F86CD25BD9DA200B69957 /* Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401F86CC25BD9DA200B69957 /* Remote.swift */; };
 		404247D125C07A03006D7E39 /* Parsing in Frameworks */ = {isa = PBXBuildFile; productRef = 404247D025C07A03006D7E39 /* Parsing */; };
 		40A0BCC925C58B15005BE678 /* KeyEventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0BCC825C58B15005BE678 /* KeyEventList.swift */; };
+		40A0BCCD25C6CBDC005BE678 /* MediaButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0BCCC25C6CBDC005BE678 /* MediaButtons.swift */; };
+		40A0BCD025C6D102005BE678 /* DevicesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40A0BCCF25C6D102005BE678 /* DevicesList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		401F86C825BD9B9F00B69957 /* ADB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADB.swift; sourceTree = "<group>"; };
 		401F86CC25BD9DA200B69957 /* Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Remote.swift; sourceTree = "<group>"; };
 		40A0BCC825C58B15005BE678 /* KeyEventList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyEventList.swift; sourceTree = "<group>"; };
+		40A0BCCC25C6CBDC005BE678 /* MediaButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaButtons.swift; sourceTree = "<group>"; };
+		40A0BCCF25C6D102005BE678 /* DevicesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				401F86B025BD97A100B69957 /* CircleButton.swift */,
 				401F86CC25BD9DA200B69957 /* Remote.swift */,
 				40A0BCC825C58B15005BE678 /* KeyEventList.swift */,
+				40A0BCCC25C6CBDC005BE678 /* MediaButtons.swift */,
+				40A0BCCF25C6D102005BE678 /* DevicesList.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -206,7 +212,9 @@
 				401F869F25BD96EF00B69957 /* ContentView.swift in Sources */,
 				401F86CD25BD9DA200B69957 /* Remote.swift in Sources */,
 				401F86BD25BD98EB00B69957 /* AppState.swift in Sources */,
+				40A0BCD025C6D102005BE678 /* DevicesList.swift in Sources */,
 				401F86C325BD9B4500B69957 /* AppReducer.swift in Sources */,
+				40A0BCCD25C6CBDC005BE678 /* MediaButtons.swift in Sources */,
 				401F869D25BD96EF00B69957 /* ADBRemoteApp.swift in Sources */,
 				401F86AE25BD977500B69957 /* DPad.swift in Sources */,
 				401F86C625BD9B6F00B69957 /* AppEnvironment.swift in Sources */,

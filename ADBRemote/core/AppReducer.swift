@@ -11,34 +11,11 @@ import ComposableArchitecture
 let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer.combine(
   Reducer({ state, action, environment in
     switch action {
-    case .refreshDevices:
-      state.devices = .init()
-      state.refreshing = true
-      return environment.adb
-        .refreshDevices()
-        .replaceError(with: [])
-        .receive(on: environment.mainQueue)
-        .eraseToEffect()
-        .map(AppAction.loadedDevices)
-
-    case let .loadedDevices(devices):
-      state.refreshing = false
-      state.devices = IdentifiedArrayOf(devices)
-      let selectDevice = { (device: Device) in
-        Effect<AppAction, Never>(value: AppAction.selectDevice(device.id))
-      }
-      return state.currentDevice.map(selectDevice)
-        ?? state.devices.first.map(selectDevice)
-        ?? .none
-
-    case let .selectDevice(id):
-      if let id = id {
-        state.currentDevice = state.devices[id: id]
-      }
+    case .devices:
       return .none
 
     case let .sendKeyEvent(keyEvent):
-      guard let id = state.currentDevice?.id else {
+      guard let id = state.devicesState.currentDevice?.id else {
         return .none
       }
       return .fireAndForget {
@@ -47,7 +24,7 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer.combine(
       }
 
     case let .sendText(text):
-      guard let id = state.currentDevice?.id else {
+      guard let id = state.devicesState.currentDevice?.id else {
         return .none
       }
       return .fireAndForget {
@@ -62,6 +39,11 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer.combine(
       return .none
     }
   }),
+  devicesReducer.pullback(
+    state: \AppState.devicesState,
+    action: /AppAction.devices,
+    environment: { $0.devices }
+  ),
   keyEventListReducer.pullback(
     state: \AppState.keyEventList,
     action: /AppAction.keyEventList,
@@ -69,6 +51,40 @@ let appReducer: Reducer<AppState, AppAction, AppEnvironment> = Reducer.combine(
   )
 )
 //.debug()
+
+let devicesReducer: Reducer<AppState.DevicesState, DevicesAction, DevicesEnvironment>
+  = Reducer({ state, action, environment in
+    switch action {
+    case .refresh:
+      if state.refreshing {
+        return .none
+      }
+      state.devices = .init()
+      state.refreshing = true
+      return environment
+        .refreshDevices()
+        .replaceError(with: [])
+        .receive(on: environment.mainQueue)
+        .eraseToEffect()
+        .map(DevicesAction.loaded)
+
+    case let .loaded(devices):
+      state.refreshing = false
+      state.devices = IdentifiedArrayOf(devices)
+      let selectDevice = { (device: Device) in
+        Effect<DevicesAction, Never>(value: DevicesAction.select(device.id))
+      }
+      return state.currentDevice.map(selectDevice)
+        ?? state.devices.first.map(selectDevice)
+        ?? .none
+
+    case let .select(id):
+      if let id = id {
+        state.currentDevice = state.devices[id: id]
+      }
+      return .none
+    }
+  })
 
 let keyEventListReducer: Reducer<AppState.KeyEventListState, KeyEventListAction, KeyEventListEnvironment>
   = Reducer({ state, action, environment in

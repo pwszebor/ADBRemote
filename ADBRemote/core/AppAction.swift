@@ -9,12 +9,16 @@ import Foundation
 import ComposableArchitecture
 
 enum AppAction {
-  case refreshDevices
-  case loadedDevices([Device])
-  case selectDevice(Device.ID?)
+  case devices(DevicesAction)
   case sendKeyEvent(AndroidKeyEvent)
   case sendText(String)
   case keyEventList(KeyEventListAction)
+}
+
+enum DevicesAction {
+  case refresh
+  case loaded([Device])
+  case select(Device.ID?)
 }
 
 enum KeyEventListAction {

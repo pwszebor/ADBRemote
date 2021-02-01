@@ -8,22 +8,12 @@
 import ComposableArchitecture
 import SwiftUI
 
-struct ListItem: View {
-  let event: AndroidKeyEvent
-  let onPress: () -> Void
-
-  var body: some View {
-    HStack {
-      Text(event.rawValue)
-      Spacer()
-      Text("Code: \(event.keyCode)")
-      Button("Send", action: onPress)
-    }
-  }
-}
-
 struct KeyEventList: View {
   let store: Store<AppState.KeyEventListState, KeyEventListAction>
+  let columns = [
+    GridItem(.flexible(), alignment: .leading),
+    GridItem(.fixed(50), alignment: .trailing)
+  ]
 
   var body: some View {
     WithViewStore(store) { viewStore in
@@ -41,9 +31,15 @@ struct KeyEventList: View {
             .textFieldStyle(RoundedBorderTextFieldStyle())
           }
         ) {
-          LazyVStack {
+          LazyVGrid(columns: columns) {
             ForEach(viewStore.events, id: \.self) { event in
-              ListItem(event: event) {
+              LazyVStack(alignment: .leading) {
+                Text(event.rawValue)
+                Text("Code: \(event.keyCode)")
+                  .font(.caption)
+              }
+
+              Button("Send") {
                 viewStore.send(.sendKeyEvent(event))
               }
             }

@@ -77,22 +77,22 @@ struct DPad: View {
         VStack {
           Image(systemName: "chevron.compact.up")
             .font(.largeTitle)
-            .foregroundColor(Color.black)
+            .foregroundColor(.accentColor)
             .offset(y: -ringWidth)
           Image(systemName: "chevron.compact.down")
             .font(.largeTitle)
-            .foregroundColor(Color.black)
+            .foregroundColor(.accentColor)
             .offset(y: ringWidth)
         }
 
         HStack {
           Image(systemName: "chevron.compact.left")
             .font(.largeTitle)
-            .foregroundColor(Color.black)
+            .foregroundColor(.accentColor)
             .offset(x: -ringWidth)
           Image(systemName: "chevron.compact.right")
             .font(.largeTitle)
-            .foregroundColor(Color.black)
+            .foregroundColor(.accentColor)
             .offset(x: ringWidth)
         }
 
